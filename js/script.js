@@ -280,45 +280,41 @@ function enviarParaPlanilha() {
 }
 
 function carregarRanking() {
-  const antigo = document.getElementById("script-ranking");
-  if (antigo) antigo.remove();
-
-  const script = document.createElement("script");
-  script.id = "script-ranking";
-  script.src = URL_APPS_SCRIPT + "?callback=exibirRanking&t=" + Date.now();
-  script.onerror = function () {
-    document.getElementById("lista-ranking").textContent = "Não foi possível carregar o ranking agora.";
-  };
-  document.body.appendChild(script);
-}
-
-function exibirRanking(ranking) {
   const lista = document.getElementById("lista-ranking");
 
-  if (!ranking || ranking.length === 0) {
-    lista.textContent = "Nenhuma pontuação registrada ainda.";
-    return;
-  }
+  fetch(URL_APPS_SCRIPT + "?t=" + Date.now())
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (ranking) {
+      if (!ranking || ranking.length === 0) {
+        lista.textContent = "Nenhuma pontuação registrada ainda.";
+        return;
+      }
 
-  lista.innerHTML = "";
-  const medalhas = ["🥇", "🥈", "🥉"];
+      lista.innerHTML = "";
+      const medalhas = ["🥇", "🥈", "🥉"];
 
-  ranking.forEach(function (item, index) {
-    const div = document.createElement("div");
-    div.className = "ranking-item";
+      ranking.forEach(function (item, index) {
+        const div = document.createElement("div");
+        div.className = "ranking-item";
 
-    if (item.nome.toLowerCase() === dadosJogador.nome.toLowerCase() && item.pontos === pontos) {
-      div.classList.add("destaque-jogador");
-    }
+        if (item.nome.toLowerCase() === dadosJogador.nome.toLowerCase() && item.pontos === pontos) {
+          div.classList.add("destaque-jogador");
+        }
 
-    const posicao = medalhas[index] || (index + 1) + "º";
-    div.innerHTML =
-      '<span class="ranking-pos">' + posicao + '</span>' +
-      '<span class="ranking-nome">' + item.nome + '</span>' +
-      '<span class="ranking-turma">' + item.turma + '</span>' +
-      '<span class="ranking-pts">' + item.pontos + ' pts</span>';
-    lista.appendChild(div);
-  });
+        const posicao = medalhas[index] || (index + 1) + "º";
+        div.innerHTML =
+          '<span class="ranking-pos">' + posicao + '</span>' +
+          '<span class="ranking-nome">' + item.nome + '</span>' +
+          '<span class="ranking-turma">' + item.turma + '</span>' +
+          '<span class="ranking-pts">' + item.pontos + ' pts</span>';
+        lista.appendChild(div);
+      });
+    })
+    .catch(function () {
+      lista.textContent = "Não foi possível carregar o ranking agora.";
+    });
 }
 
 function gerenciarTeclado(e) {
