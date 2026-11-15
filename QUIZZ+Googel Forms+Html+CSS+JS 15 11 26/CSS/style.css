@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #141c2d;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 15px;
+}
+
+.container {
+  background-color: #23304b;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid #354a75;
+  text-align: center;
+}
+
+h1 {
+  color: #50b4ff;
+  margin-top: 10px;
+  font-size: 2rem;
+}
+
+p {
+  color: #aab4c3;
+  font-size: 1.05rem;
+}
+
+.cientista {
+  font-size: 4.5rem;
+  margin: 10px 0;
+  transition: transform 0.2s;
+}
+
+.btn {
+  background-color: #2d4169;
+  color: white;
+  border: 2px solid #50b4ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin: 8px 0;
+  transition: 0.2s;
+  text-align: left;
+}
+
+.btn:hover:not(:disabled),
+.btn.selecionado {
+  background-color: #415f96;
+  border-color: #f5cd3c;
+  box-shadow: 0 0 12px rgba(245, 205, 60, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  cursor: default;
+}
+
+.btn-primary {
+  background-color: #2dc86e;
+  border-color: #2dc86e;
+  color: #141c2d;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #36e07d;
+  border-color: #36e07d;
+  box-shadow: none;
+}
+
+.correta {
+  background-color: #2dc86e !important;
+  border-color: #2dc86e !important;
+  color: #141c2d !important;
+  box-shadow: none !important;
+}
+
+.errada {
+  background-color: #e14141 !important;
+  border-color: #e14141 !important;
+  box-shadow: none !important;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  border: 2px solid #2dc86e;
+  background-color: #141c2d;
+  color: white;
+  text-align: center;
+  margin: 6px 0;
+  outline: none;
+}
+
+input:focus {
+  border-color: #50b4ff;
+  box-shadow: 0 0 8px rgba(80, 180, 255, 0.4);
+}
+
+.linha-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.linha-inputs input:first-child {
+  flex: 2;
+}
+
+.linha-inputs input:last-child {
+  flex: 1;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #141c2d;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tema {
+  color: #f5cd3c;
+}
+
+.tempo {
+  color: #2dc86e;
+  font-weight: bold;
+}
+
+.tempo.urgente {
+  color: #e14141;
+  animation: pulsar 0.8s infinite;
+}
+
+@keyframes pulsar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.pergunta-box {
+  background-color: #1b253b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.feedback {
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-height: 28px;
+  margin-top: 10px;
+}
+
+.ranking-box {
+  background-color: #141c2d;
+  border: 2px solid #354a75;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 18px 0;
+  text-align: left;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.ranking-box h3 {
+  color: #f5cd3c;
+  margin: 0 0 12px 0;
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #23304b;
+  font-size: 0.95rem;
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.ranking-item.destaque-jogador {
+  background-color: #2d4169;
+  border-radius: 8px;
+  border: 1px solid #2dc86e;
+  font-weight: bold;
+}
+
+.ranking-pos {
+  font-weight: bold;
+  color: #50b4ff;
+  min-width: 32px;
+}
+
+.ranking-nome {
+  flex: 1;
+  color: #ffffff;
+}
+
+.ranking-turma {
+  color: #aab4c3;
+  font-size: 0.85rem;
+  margin-right: 12px;
+}
+
+.ranking-pts {
+  font-weight: bold;
+  color: #2dc86e;
+}
+
+.oculto {
+  display: none;
+}
