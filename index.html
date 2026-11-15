@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Ciências - Desafio do Laboratório</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <div id="tela-menu">
+    <div class="cientista">🧑‍🔬</div>
+    <h1>QUIZ DE CIÊNCIAS</h1>
+    <p>Desafio de Biologia, Física, Química e Astronomia</p>
+    <p style="color: #f5cd3c;">Funciona no Celular, Chromebook e Computador!</p>
+    <button class="btn btn-primary" onclick="irParaNome()">COMEÇAR DESAFIO</button>
+  </div>
+
+  <div id="tela-nome" class="oculto">
+    <div class="cientista" style="font-size: 3.2rem; margin: 5px 0;">🔬</div>
+    <h1>IDENTIFICAÇÃO</h1>
+    <p>Preencha seus dados para registrar seu resultado na planilha:</p>
+    
+    <input type="text" id="input-nome" placeholder="Nome completo *" maxlength="50">
+    <input type="text" id="input-escola" placeholder="Nome da Escola *" maxlength="50">
+    
+    <div class="linha-inputs">
+      <input type="text" id="input-turma" placeholder="Turma (ex: 8º A) *" maxlength="15">
+      <input type="number" id="input-idade" placeholder="Idade *" min="5" max="99">
+    </div>
+    
+    <input type="email" id="input-email" placeholder="Seu e-mail *" maxlength="60">
+    
+    <button class="btn btn-primary" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+  </div>
+
+  <div id="tela-jogo" class="oculto">
+    <div class="hud">
+      <span id="hud-info">Pergunta 1/10 | Pts: 0 | Vidas: ❤️❤️❤️</span>
+      <span id="hud-tema" class="tema">Tema: Ciências</span>
+      <span id="hud-tempo" class="tempo">⏱️ 30s</span>
+    </div>
+    <div class="pergunta-box">
+      <div id="cientista-jogo" class="cientista" style="font-size: 3.2rem; margin: 0 0 10px 0;">🧑‍🔬</div>
+      <div id="texto-pergunta">Carregando pergunta...</div>
+      <div id="texto-feedback" class="feedback"></div>
+    </div>
+    <div id="opcoes-container"></div>
+  </div>
+
+  <div id="tela-fim" class="oculto">
+    <div id="cientista-fim" class="cientista">🏆</div>
+    <h1 id="titulo-fim">PARABÉNS!</h1>
+    <p id="resumo-fim" style="font-size: 1.3rem; color: white;"></p>
+    <p id="status-envio" style="color: #50b4ff;">Enviando resultado para a planilha...</p>
+    
+    <div id="box-ranking" class="ranking-box">
+      <h3>🏅 TOP 10 - RANKING GERAL</h3>
+      <div id="lista-ranking">Carregando ranking...</div>
+    </div>
+
+    <button class="btn btn-primary" onclick="location.reload()">JOGAR NOVAMENTE</button>
+  </div>
+</div>
+
+<script src="js/perguntas7ef3t.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
