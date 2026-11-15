@@ -1,2 +1,2 @@
-# Game-QUIZZ
+# Quizz-Ciencias
 Jogo educacional
